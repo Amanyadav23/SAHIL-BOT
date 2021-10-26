@@ -8,6 +8,7 @@ from callsmusic.callsmusic import client as USER
 from helpers.admins import get_administrators
 import requests
 import aiohttp
+import yt_dlp
 from youtube_search import YoutubeSearch
 import converter
 from downloaders import youtube
@@ -91,7 +92,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
                    & ~filters.via_bot)
 async def play(_, message: Message):
 
-    lel = await message.reply("🔄 **𝗟𝗼𝗮𝗱 𝗕𝗲𝘀𝘁 👌𝗤𝘂𝗮𝗹𝗶𝘁𝘆 ❤️ 𝗦𝗼𝗻𝗴 🎶🤟**")
+    lel = await message.reply("🔄 **° 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐒𝐨𝐧𝐠 °**")
     
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
@@ -99,7 +100,7 @@ async def play(_, message: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "EsportRobot"
+        user.first_name = "EsportPlayer"
     usar = user
     wew = usar.id
     try:
@@ -111,24 +112,24 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>𝗔𝗱 𝗠𝗲 𝗔𝘀 𝗔𝗱𝗺𝗶𝗻 𝗢𝗳 𝗬𝗼𝘂𝗿 𝗚𝗿𝘂𝗼𝗽  𝗙𝗶𝗿𝘀𝘁 ❰ 𝗛𝗲𝘅𝗼𝗿 ❤️ 𝗫𝟯 𝗦𝗺𝗼𝗸𝗲𝗿 🚬 ❱</b>")
+                        "<b>𝐀𝐝 𝐌𝐞 𝐀𝐬 𝐀𝐝𝐦𝐢𝐧 𝐅𝐢𝐫𝐬𝐭 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ❰ 𝐃𝐞𝐦𝐨𝐧 𝐁𝐨𝐭 ❱</b>")
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "**𝗠𝘂𝘀𝗶𝗰 🎶 𝗔𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁 😎 𝗝𝗼𝗶𝗻𝗲𝗱 𝗧𝗵𝗶𝘀 😉 𝗚𝗿𝘂𝗼𝗽 𝗙𝗼𝗿 𝗣𝗹𝗮𝘆 𝗠𝘂𝘀𝗶𝗰 ❤️🤟**")
+                        message.chat.id, "**𝐌𝐮𝐬𝐢𝐜 🎶 𝐀𝐬𝐬𝐢𝐬𝐭𝐚𝐧𝐭 😎 𝐉𝐨𝐢𝐧𝐞𝐝 𝐓𝐡𝐢𝐬 😉 𝐆𝐫𝐨𝐮𝐩 𝐅𝐨𝐫 𝐏𝐥𝐚𝐲 𝐌𝐮𝐬𝐢𝐜 ❤️🤟**")
 
                 except UserAlreadyParticipant:
                     pass
                 except Exception:
                     await lel.edit(
-                        f"<b>❰𝗙𝗹𝗼𝗼𝗱 😒 𝗪𝗮𝗶𝘁 𝗘𝗿𝗿𝗼𝗿 😔❱</b>\n𝗛𝗲𝘆 𝗔𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁 𝗨𝘀𝗲𝗿𝗕𝗼𝘁 𝗖𝗼𝘂𝗹𝗱𝗻'𝘁 𝗝𝗼𝗶𝗻 𝗬𝗼𝘂𝗿 𝗚𝗿𝗼𝘂𝗽 𝗗𝘂𝗲 𝗧𝗼 𝗛𝗲𝗮𝘃𝘆 𝗝𝗼𝗶𝗻 𝗥𝗲𝗤𝘂𝗲𝘀𝘁 . 𝗠𝗮𝗸𝗲 𝗦𝘂𝗿𝗲 𝗨𝘀𝗲𝗿𝗕𝗼𝘁 𝗜𝘀 𝗡𝗼𝘁 𝗕𝗮𝗻𝗻𝗲𝗱 😔 𝗜𝗻 𝗚𝗿𝗼𝘂𝗽 𝗔𝗻𝗱 𝗧𝗿𝘆 𝗔𝗴𝗮𝗶𝗻 😎🤟𝗹𝗮𝘁𝗲𝗿 :) ")
+                        f"<b>❰𝐅𝐥𝐨𝐨𝐝 😒 𝐖𝐚𝐢𝐭 𝐄𝐫𝐫𝐨𝐫 😔❱</b>\n𝐇𝐞𝐲 𝐀𝐬𝐬𝐢𝐬𝐭𝐚𝐧𝐭 𝐔𝐬𝐞𝐫𝐛𝐨𝐭 𝐂𝐨𝐮𝐥𝐝𝐧'𝐭 𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩 𝐃𝐮𝐞 𝐓𝐨 𝐇𝐞𝐚𝐯𝐲 𝐉𝐨𝐢𝐧 𝐑𝐞𝐐𝐮𝐞𝐬𝐭 . 𝐌𝐚𝐤𝐞 𝐒𝐮𝐫𝐞 𝐔𝐬𝐞𝐫𝐛𝐨𝐭 @s4shivxassistant 𝐈𝐬 𝐍𝐨𝐭 𝐁𝐚𝐧𝐧𝐞𝐝 😔 𝐈𝐧 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 𝐀𝐧𝐝 𝐓𝐫𝐲 𝐀𝐠𝐚𝐢𝐧 😎🤟𝐋𝐚𝐭𝐞𝐫:) ")
     try:
         await USER.get_chat(chid)
     except:
         await lel.edit(
-            f"<i>❰𝗠𝘂𝘀𝗶𝗰𝗫 ❘ 𝗲𝗦𝗽𝗼𝗿𝘁 🚩❱ 𝗔𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁 𝗨𝘀𝗲𝗿𝗕𝗼𝘁 𝗜𝘀 𝗡𝗼𝘁 𝗜𝗻 𝗧𝗵𝗶𝘀 𝗖𝗵𝗮𝘁' 𝗔𝘀𝗸 𝗔𝗱𝗺𝗶𝗻 𝗧𝗼 𝗦𝗲𝗻𝗱 /𝗽𝗹𝗮𝘆 𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗙𝗼𝗿 𝗙𝗶𝗿𝘀𝘁 𝗧𝗶𝗺𝗲 𝗧𝗼 𝗔𝗱𝗱 𝗜𝘁 😎🤟</i>")
+            f"<i>❰𝐃𝐞𝐦𝐨𝐧 𝐁𝐨𝐭❱ 𝐀𝐬𝐬𝐢𝐬𝐭𝐚𝐧𝐭 𝐔𝐬𝐞𝐫'𝐛𝐨𝐭 𝐈𝐬 𝐍𝐨𝐭 𝐈𝐧 𝐓𝐡𝐢𝐬 𝐂𝐡𝐚𝐭' 𝐀𝐬𝐤 𝐀𝐝𝐦𝐢𝐧 𝐓𝐨 𝐒𝐞𝐧𝐝 /play 𝐂𝐨𝐦𝐦𝐚𝐧𝐝 𝐅𝐨𝐫 𝐅𝐢𝐫𝐬𝐭 𝐓𝐢𝐦𝐞 𝐓𝐨 𝐀𝐝𝐝 𝐈𝐭 😎🤟</i>")
         return
     
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
@@ -137,7 +138,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"❰𝗩𝗶𝗱𝗲𝗼 🧿❱ 𝗟𝗼𝗻𝗴𝗲𝗿 𝗧𝗵𝗮𝗻 {DURATION_LIMIT} 𝗠𝗶𝗻𝘂𝘁𝗲𝘀 𝗔𝗿𝗲𝗻'𝘁 𝗔𝗹𝗹𝗼𝘄𝗲𝗱 ✨ 𝗧𝗼 𝗣𝗹𝗮𝘆 ❤️🤞"
+                f"❰𝐕𝐢𝐝𝐞𝐨 🧿❱ 𝐋𝐨𝐧𝐠𝐞𝐫 𝐓𝐡𝐚𝐧 {DURATION_LIMIT} 𝐌𝐢𝐧𝐮𝐭𝐞'𝐒 𝐀𝐫𝐞𝐧'𝐭 𝐀𝐥𝐥𝐨𝐰𝐞𝐝 𝐓𝐨 𝐏𝐥𝐚𝐲"
             )
 
         file_name = get_file_name(audio)
@@ -151,11 +152,8 @@ async def play(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                            text="𝐂𝐡𝐚𝐧𝐧𝐞𝐥📡",
-                            url=f"https://t.me/eSport_BOTs"),
-                        InlineKeyboardButton(
-                            text="𝐆𝐫𝐨𝐮𝐩⭐",
-                            url=f"https://t.me/EsportClan")
+                        text="❰ 𝐒𝐮𝐩𝐩𝐨𝐫𝐭 🐬 ❱",
+                        url="https://t.me/shivamdemon")
                    
                 ]
             ]
@@ -189,14 +187,14 @@ async def play(_, message: Message):
                 secmul *= 60
                 
             keyboard = InlineKeyboardMarkup(
-                [
+                     [
                     [
                         InlineKeyboardButton(
-                            text="𝐂𝐡𝐚𝐧𝐧𝐞𝐥📡",
-                            url=f"https://t.me/eSport_BOTs"),
+                            text="𝐎𝐰𝐧𝐞𝐫❣️",
+                            url=f"https://t.me/shivamdemon"),
                         InlineKeyboardButton(
-                            text="𝐆𝐫𝐨𝐮𝐩⭐",
-                            url=f"https://t.me/EsportClan")
+                            text="𝐁𝐡𝐚𝐢😍",
+                            url=f"https://t.me/alone_boy_xd_01")
 
                     ]
                 ]
@@ -210,28 +208,28 @@ async def play(_, message: Message):
                     [
                         [
                             InlineKeyboardButton(
-                            text="𝐂𝐡𝐚𝐧𝐧𝐞𝐥📡",
-                            url=f"https://t.me/eSport_BOTs"),
+                            text="𝐎𝐰𝐧𝐞𝐫❣️",
+                            url=f"https://t.me/shivamdemon"),
                         InlineKeyboardButton(
-                            text="𝐆𝐫𝐨𝐮𝐩⭐",
-                            url=f"https://t.me/EsportClan")
+                            text="𝐁𝐡𝐚𝐢😍",
+                            url=f"https://t.me/alone_boy_xd_01")
 
                         ]
                     ]
                 )
         if (dur / 60) > DURATION_LIMIT:
-             await lel.edit(f"❰𝗩𝗶𝗱𝗲𝗼 🧿❱ 𝗟𝗼𝗻𝗴𝗲𝗿 𝗧𝗵𝗮𝗻 {DURATION_LIMIT} 𝗠𝗶𝗻𝘂𝘁𝗲𝘀 𝗔𝗿𝗲𝗻'𝘁 𝗔𝗹𝗹𝗼𝘄𝗲𝗱 ✨ 𝗧𝗼 𝗣𝗹𝗮𝘆 ❤️🤞")
+             await lel.edit(f"❰𝐕𝐢𝐝𝐞𝐨 🧿❱ 𝐋𝐨𝐧𝐠𝐞𝐫 𝐓𝐡𝐚𝐧 {DURATION_LIMIT} 𝐌𝐢𝐧𝐮𝐭𝐞'𝐒 𝐀𝐫𝐞𝐧'𝐭 𝐀𝐥𝐥𝐨𝐰𝐞𝐝 𝐓𝐨 𝐏𝐥𝐚𝐲")
              return
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)     
         file_path = await converter.convert(youtube.download(url))
     else:
         if len(message.command) < 2:
-            return await lel.edit("✌**𝗪𝗵𝗮𝘁'𝘀 𝗧𝗵𝗲 ❤️ 𝗦𝗼𝗻𝗴 🎶 𝗬𝗼𝘂 😎 𝗪𝗮𝗻𝘁 𝗧𝗼 𝗣𝗹𝗮𝘆 🧿🤟**")
-        await lel.edit("🔎 **𝗙𝗶𝗻𝗱𝗶𝗻𝗴 💫 𝗧𝗵𝗲 𝗦𝗼𝗻𝗴 ❤️ ❰𝗛𝗲𝘅𝗼𝗿 ❤️ 𝗫𝟯 𝗦𝗺𝗼𝗸𝗲𝗿 🚬❱...**")
+            return await lel.edit("✌**𝐖𝐡𝐚𝐭'𝐬 𝐓𝐡𝐞 𝐒𝐨𝐧𝐠 🎧 𝐘𝐨𝐮 𝐖𝐚𝐧𝐭 𝐓𝐨 𝐏𝐥𝐚𝐲 🔊**")
+        await lel.edit("🔎 **𝐅𝐢𝐧𝐝𝐢𝐧𝐠 𝐓𝐡𝐞 𝐇𝐢𝐠𝐡 𝐐𝐮𝐚𝐥𝐢𝐭𝐲 🎧 𝐒𝐨𝐧𝐠 🥀 ❰𝐃𝐞𝐦𝐨𝐧 𝐁𝐨𝐭❱...**")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit("🎵 **𝗣𝗿𝗼𝗰𝗲𝘀𝘀𝗶𝗻𝗴 𝗦𝗼𝘂𝗻𝗱 🔊**")
+        await lel.edit("🎵 **𝐏𝐫𝐨𝐜𝐞𝐬𝐬𝐢𝐧𝐠 𝐒𝐨𝐮𝐧𝐝 🔊**")
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -254,7 +252,7 @@ async def play(_, message: Message):
                 
         except Exception as e:
             await lel.edit(
-                "🌸𝗦𝗼𝗻𝗴 𝗡𝗼𝘁 𝗙𝗼𝘂𝗻𝗱 ✌ 𝗦𝗽𝗲𝗹𝗹𝗶𝗻𝗴 𝗣𝗿𝗼𝗯𝗹𝗲𝗺."
+                "𝐒𝐨𝐧𝐠 𝐍𝐨𝐭 𝐅𝐨𝐮𝐧𝐝 𝐒𝐩𝐞𝐥𝐥𝐢𝐧𝐠 𝐏𝐫𝐨𝐛𝐥𝐞𝐦."
             )
             print(str(e))
             return
@@ -264,17 +262,17 @@ async def play(_, message: Message):
                     [
                       
                         InlineKeyboardButton(
-                            text="𝐂𝐡𝐚𝐧𝐧𝐞𝐥📡",
-                            url=f"https://t.me/eSport_BOTs"),
+                            text="𝐎𝐰𝐧𝐞𝐫❣️",
+                            url=f"https://t.me/shivamdemon"),
                         InlineKeyboardButton(
-                            text="𝐆𝐫𝐨𝐮𝐩⭐",
-                            url=f"https://t.me/EsportClan")
+                            text="𝐁𝐡𝐚𝐢😍",
+                            url=f"https://t.me/alone_boy_xd_01")
                     ]
                 ]
             )
         
         if (dur / 60) > DURATION_LIMIT:
-             await lel.edit(f"❰𝗩𝗶𝗱𝗲𝗼 🧿❱ 𝗟𝗼𝗻𝗴𝗲𝗿 𝗧𝗵𝗮𝗻  {DURATION_LIMIT} 𝗠𝗶𝗻𝘂𝘁𝗲𝘀 𝗔𝗿𝗲𝗻'𝘁 𝗔𝗹𝗹𝗼𝘄𝗲𝗱 ✨ 𝗧𝗼 𝗣𝗹𝗮𝘆 ❤️🤞")
+             await lel.edit(f"❰𝐕𝐢𝐝𝐞𝐨 🧿❱ 𝐋𝐨𝐧𝐠𝐞𝐫 𝐓𝐡𝐚𝐧  {DURATION_LIMIT} 𝐌𝐢𝐧𝐮𝐭𝐞'𝐒 𝐀𝐫𝐞𝐧'𝐭 𝐀𝐥𝐥𝐨𝐰𝐞𝐝 𝐓𝐨 𝐏𝐥𝐚𝐲")
              return
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)  
@@ -284,8 +282,8 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
         photo="final.png", 
-        caption="**❰𝗠𝘂𝘀𝗶𝗰𝗫 ❘ 𝗲𝗦𝗽𝗼𝗿𝘁 🚩❱ 𝗦𝗼𝗻𝗴 ❤️ 𝗣𝗼𝘀𝗶𝘁𝗶𝗼𝗻 💫🤟** {}".format(
-        position
+        caption="**🎵 𝐒𝐨𝐧𝐠:** {}\n❰𝐃𝐞𝐦𝐨𝐧 𝐁𝐨𝐭❱ 𝐒𝐨𝐧𝐠 𝐏𝐨𝐬𝐢𝐭𝐢𝐨𝐧** {}".format(
+        title,position
         ),
         reply_markup=keyboard)
         os.remove("final.png")
@@ -295,8 +293,8 @@ async def play(_, message: Message):
         await message.reply_photo(
         photo="final.png",
         reply_markup=keyboard,
-        caption="**❰𝗠𝘂𝘀𝗶𝗰𝗫 ❘ 𝗲𝗦𝗽𝗼𝗿𝘁 🚩❱ Now 😄 𝗣𝗹𝗮𝘆𝗶𝗻𝗴 📀 𝗔𝘁 🤟 `{}`...**".format(
-        message.chat.title
+        caption="**🎵 𝐒𝐨𝐧𝐠:** {}\n❰𝐃𝐞𝐦𝐨𝐧 𝐁𝐨𝐭❱ 𝐍𝐨𝐰 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 𝐀𝐭 `{}`...**".format(
+        title,message.chat.title
         ), )
         os.remove("final.png")
         return await lel.delete()
