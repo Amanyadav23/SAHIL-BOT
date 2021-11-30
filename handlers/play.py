@@ -112,13 +112,13 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>𝐀𝐝 𝐌𝐞 𝐀𝐬 𝐀𝐝𝐦𝐢𝐧 𝐅𝐢𝐫𝐬𝐭 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ❰ 𝐃𝐞𝐦𝐨𝐧 𝐁𝐨𝐭 ❱</b>")
+                        "<b>𝐀𝐝𝐝 𝐌𝐞 𝐀𝐬 𝐀𝐝𝐦𝐢𝐧 𝐅𝐢𝐫𝐬𝐭 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ❰ 𝐀𝐜𝐟 𝐦𝐮𝐬𝐢𝐜 𝐁𝐨𝐭 ❱</b>")
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "**𝐌𝐮𝐬𝐢𝐜 🎶 𝐀𝐬𝐬𝐢𝐬𝐭𝐚𝐧𝐭 😎 𝐉𝐨𝐢𝐧𝐞𝐝 𝐓𝐡𝐢𝐬 😉 𝐆𝐫𝐨𝐮𝐩 𝐅𝐨𝐫 𝐏𝐥𝐚𝐲 𝐌𝐮𝐬𝐢𝐜 ❤️🤟**")
+                        message.chat.id, "**𝐀𝐚𝐠𝐚𝐲𝐚 𝐦𝐚𝐢 𝐌𝐮𝐬𝐢𝐜 🎶 𝐀𝐬𝐬𝐢𝐬𝐭𝐚𝐧𝐭 😎 𝐉𝐨𝐢𝐧𝐞𝐝 𝐓𝐡𝐢𝐬 😉 𝐆𝐫𝐨𝐮𝐩 𝐅𝐨𝐫 𝐏𝐥𝐚𝐲 𝐌𝐮𝐬𝐢𝐜 ❤️🤟**")
 
                 except UserAlreadyParticipant:
                     pass
@@ -129,7 +129,7 @@ async def play(_, message: Message):
         await USER.get_chat(chid)
     except:
         await lel.edit(
-            f"<i>❰𝐃𝐞𝐦𝐨𝐧 𝐁𝐨𝐭❱ 𝐀𝐬𝐬𝐢𝐬𝐭𝐚𝐧𝐭 𝐔𝐬𝐞𝐫'𝐛𝐨𝐭 𝐈𝐬 𝐍𝐨𝐭 𝐈𝐧 𝐓𝐡𝐢𝐬 𝐂𝐡𝐚𝐭' 𝐀𝐬𝐤 𝐀𝐝𝐦𝐢𝐧 𝐓𝐨 𝐒𝐞𝐧𝐝 /play 𝐂𝐨𝐦𝐦𝐚𝐧𝐝 𝐅𝐨𝐫 𝐅𝐢𝐫𝐬𝐭 𝐓𝐢𝐦𝐞 𝐓𝐨 𝐀𝐝𝐝 𝐈𝐭 😎🤟</i>")
+            f"<i> ❰𝐀𝐜𝐟 𝐌𝐮𝐬𝐢𝐜 𝐁𝐨𝐭❱ 𝐀𝐬𝐬𝐢𝐬𝐭𝐚𝐧𝐭 𝐔𝐬𝐞𝐫'𝐛𝐨𝐭 𝐈𝐬 𝐍𝐨𝐭 𝐈𝐧 𝐓𝐡𝐢𝐬 𝐂𝐡𝐚𝐭' 𝐀𝐬𝐤 𝐀𝐝𝐦𝐢𝐧 𝐓𝐨 𝐒𝐞𝐧𝐝 /play 𝐂𝐨𝐦𝐦𝐚𝐧𝐝 𝐅𝐨𝐫 𝐅𝐢𝐫𝐬𝐭 𝐓𝐢𝐦𝐞 𝐓𝐨 𝐀𝐝𝐝 𝐈𝐭 😎🤟</i>")
         return
     
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
@@ -153,7 +153,7 @@ async def play(_, message: Message):
                 [
                     InlineKeyboardButton(
                         text="❰ 𝐒𝐮𝐩𝐩𝐨𝐫𝐭 🐬 ❱",
-                        url="https://t.me/shivamdemon")
+                        url="https://t.me/ACF_FIGHTERR")
                    
                 ]
             ]
@@ -191,10 +191,10 @@ async def play(_, message: Message):
                     [
                         InlineKeyboardButton(
                             text="𝐎𝐰𝐧𝐞𝐫❣️",
-                            url=f"https://t.me/shivamdemon"),
+                            url=f"https://t.me/A_4_AMAN_offixial"),
                         InlineKeyboardButton(
                             text="𝐁𝐡𝐚𝐢😍",
-                            url=f"https://t.me/alone_boy_xd_01")
+                            url=f"https://t.me/S_4_SAHIL_official")
 
                     ]
                 ]
@@ -209,10 +209,10 @@ async def play(_, message: Message):
                         [
                             InlineKeyboardButton(
                             text="𝐎𝐰𝐧𝐞𝐫❣️",
-                            url=f"https://t.me/shivamdemon"),
+                            url=f"https://t.me/A_4_AMAN_offixial"),
                         InlineKeyboardButton(
                             text="𝐁𝐡𝐚𝐢😍",
-                            url=f"https://t.me/alone_boy_xd_01")
+                            url=f"https://t.me/S_4_SAHIL_official")
 
                         ]
                     ]
@@ -226,7 +226,7 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await lel.edit("✌**𝐖𝐡𝐚𝐭'𝐬 𝐓𝐡𝐞 𝐒𝐨𝐧𝐠 🎧 𝐘𝐨𝐮 𝐖𝐚𝐧𝐭 𝐓𝐨 𝐏𝐥𝐚𝐲 🔊**")
-        await lel.edit("🔎 **𝐅𝐢𝐧𝐝𝐢𝐧𝐠 𝐓𝐡𝐞 𝐇𝐢𝐠𝐡 𝐐𝐮𝐚𝐥𝐢𝐭𝐲 🎧 𝐒𝐨𝐧𝐠 🥀 ❰𝐃𝐞𝐦𝐨𝐧 𝐁𝐨𝐭❱...**")
+        await lel.edit("🔎 **𝐅𝐢𝐧𝐝𝐢𝐧𝐠 𝐓𝐡𝐞 𝐇𝐢𝐠𝐡 𝐐𝐮𝐚𝐥𝐢𝐭𝐲 🎧 𝐒𝐨𝐧𝐠 🥀 ❰𝐀𝐜𝐟 𝐦𝐮𝐬𝐢𝐜 𝐁𝐨𝐭❱...**")
         query = message.text.split(None, 1)[1]
         # print(query)
         await lel.edit("🎵 **𝐏𝐫𝐨𝐜𝐞𝐬𝐬𝐢𝐧𝐠 𝐒𝐨𝐮𝐧𝐝 🔊**")
@@ -263,10 +263,10 @@ async def play(_, message: Message):
                       
                         InlineKeyboardButton(
                             text="𝐎𝐰𝐧𝐞𝐫❣️",
-                            url=f"https://t.me/shivamdemon"),
+                            url=f"https://t.me/A_4_AMAN_offixial"),
                         InlineKeyboardButton(
                             text="𝐁𝐡𝐚𝐢😍",
-                            url=f"https://t.me/alone_boy_xd_01")
+                            url=f"https://t.me/S_4_SAHIL_official")
                     ]
                 ]
             )
@@ -282,7 +282,7 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
         photo="final.png", 
-        caption="**🎵 𝐒𝐨𝐧𝐠:** {}\n❰𝐃𝐞𝐦𝐨𝐧 𝐁𝐨𝐭❱ 𝐒𝐨𝐧𝐠 𝐏𝐨𝐬𝐢𝐭𝐢𝐨𝐧** {}".format(
+        caption="**🎵 𝐒𝐨𝐧𝐠:** {}\n❰𝐀𝐜𝐟 𝐦𝐮𝐬𝐢𝐜 𝐁𝐨𝐭❱ 𝐒𝐨𝐧𝐠 𝐏𝐨𝐬𝐢𝐭𝐢𝐨𝐧** {}".format(
         title,position
         ),
         reply_markup=keyboard)
@@ -293,7 +293,7 @@ async def play(_, message: Message):
         await message.reply_photo(
         photo="final.png",
         reply_markup=keyboard,
-        caption="**🎵 𝐒𝐨𝐧𝐠:** {}\n❰𝐃𝐞𝐦𝐨𝐧 𝐁𝐨𝐭❱ 𝐍𝐨𝐰 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 𝐀𝐭 `{}`...**".format(
+        caption="**🎵 𝐒𝐨𝐧𝐠:** {}\n❰𝐀𝐜𝐟 𝐦𝐮𝐬𝐢𝐜 𝐁𝐨𝐭❱ 𝐍𝐨𝐰 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 𝐀𝐭 `{}`...**".format(
         title,message.chat.title
         ), )
         os.remove("final.png")
