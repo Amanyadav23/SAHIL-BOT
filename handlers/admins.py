@@ -18,10 +18,10 @@ async def pause(_, message: Message):
     ) or (
             callsmusic.pytgcalls.active_calls[message.chat.id] == 'paused'
     ):
-        await message.reply_text("❗ 𝐍𝐨𝐭𝐡𝐢𝐧𝐠 𝐈𝐬 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 ✨")
+        await message.reply_text("❗𝐊𝐮𝐜𝐡 𝐍𝐚𝐡𝐢 𝐂𝐡𝐚𝐥 𝐑𝐚𝐡𝐚 𝐍𝐨𝐭𝐡𝐢𝐧𝐠 𝐈𝐬 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 ✨")
     else:
         callsmusic.pytgcalls.pause_stream(message.chat.id)
-        await message.reply_text("▶️ 𝐏𝐚𝐮𝐬𝐞𝐝 😔🤟")
+        await message.reply_text("▶️ 𝐑𝐮𝐤 𝐆𝐚𝐲𝐚 𝐁𝐡𝐨𝐬𝐝𝐢𝐤𝐞 𝐏𝐚𝐮𝐬𝐞𝐝 😔🤟")
 
 
 @Client.on_message(command("resume") & other_filters)
@@ -60,7 +60,7 @@ async def stop(_, message: Message):
 @authorized_users_only
 async def skip(_, message: Message):
     if message.chat.id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("❗ 𝐍𝐨𝐭𝐡𝐢𝐧𝐠 😔 𝐈𝐬 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 🎶 𝐓𝐨 𝐒𝐤𝐢𝐩 💫")
+        await message.reply_text("❗ 𝐁𝐬𝐝𝐤 𝐊𝐮𝐜𝐡 𝐂𝐡𝐚𝐥 𝐍𝐚𝐡𝐢 𝐑𝐚𝐡𝐚 𝐒𝐤𝐢𝐩 𝐊𝐲𝐚 𝐊𝐚𝐫𝐮 𝐍𝐨𝐭𝐡𝐢𝐧𝐠 😔 𝐈𝐬 𝐏𝐥𝐚𝐲𝐢𝐧𝐠 🎶 𝐓𝐨 𝐒𝐤𝐢𝐩 💫")
     else:
         callsmusic.queues.task_done(message.chat.id)
 
@@ -72,4 +72,4 @@ async def skip(_, message: Message):
                 callsmusic.queues.get(message.chat.id)["file"]
             )
 
-        await message.reply_text("➡️ 𝐒𝐤𝐢𝐩𝐩𝐞𝐝 💫 𝐓𝐡𝐞 𝐂𝐮𝐫𝐫𝐞𝐧𝐭 😊 𝐒𝐨𝐧𝐠 ❤️🤟")
+        await message.reply_text("➡️ 𝐊𝐚𝐫𝐝𝐢𝐲𝐚 𝐒𝐤𝐢𝐩 𝐛𝐬𝐝𝐤 𝐒𝐤𝐢𝐩𝐩𝐞𝐝 💫 𝐓𝐡𝐞 𝐂𝐮𝐫𝐫𝐞𝐧𝐭 😊 𝐒𝐨𝐧𝐠 ❤️🤟")
